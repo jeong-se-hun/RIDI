@@ -5209,7 +5209,8 @@ $root.addEventListener('click', async e => {
   const {
     data: auth
   } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auth');
-  if (!auth) localStorage.removeItem('token');
+  // if (!auth) localStorage.removeItem('token');
+
   const path = e.target.closest('a').getAttribute('href');
   if (!((_getPayload = (0,_app_js__WEBPACK_IMPORTED_MODULE_1__.getPayload)()) !== null && _getPayload !== void 0 && _getPayload.isAdult) && ((_e$target$closest = e.target.closest('li')) === null || _e$target$closest === void 0 ? void 0 : _e$target$closest.dataset.adult) === 'true') return;
   if (e.target.closest('#nav-settings')) return;
@@ -5219,12 +5220,11 @@ $root.addEventListener('click', async e => {
   render(path);
 });
 window.addEventListener('popstate', async () => {
-  // eslint-disable-next-line no-debugger
-  debugger;
   const {
     data: auth
   } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auth');
-  if (!auth) localStorage.removeItem('token');
+  // if (!auth) localStorage.removeItem('token');
+
   render(window.location.pathname);
 });
 window.addEventListener('DOMContentLoaded', async () => {
