@@ -53,8 +53,6 @@ app.post('/login', async (req, res) => {
 
   const { userId, birth, email } = user;
 
-  console.log('사용자 정보:', user);
-
   // 토큰 생성
   const accessToken = jwt.sign({ userId, birth, email }, process.env.JWT_SECRET_KEY, {
     expiresIn: '1d',
@@ -70,10 +68,9 @@ app.post('/login', async (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
-  console.log(req.body);
   const { userId, password, birth, userEmail } = req.body;
-  await users.createUser(userId, password, birth, userEmail);
-  res.end();
+  const availableId = await users.createUser(userId, password, birth, userEmail);
+  res.send({ availableId });
 });
 
 app.get('*', (req, res) => {

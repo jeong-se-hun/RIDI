@@ -6034,7 +6034,15 @@ const joinMembership = async e => {
     return obj[key] = value, obj;
   }, {});
   try {
-    await axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signup', payload);
+    const response = await axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signup', payload);
+    const {
+      availableId
+    } = response.data;
+    if (!availableId) {
+      alert('사용 중인 아이디입니다.');
+      document.querySelector('.signup__input__box').focus();
+      return;
+    }
     window.history.pushState({}, null, '/');
     (0,_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])('/');
   } catch (e) {

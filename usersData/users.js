@@ -16,18 +16,29 @@ const axios = require('axios');
 
 // const getUsers = () => users;
 
+const userIdCheck = async userid => {
+  const response = await axios('https://react-http-258ae-default-rtdb.firebaseio.com/ridi.json');
+  const responseData = await response.data;
+
+  for (const key in responseData) {
+    if (responseData[key].userId === userid) return responseData[key];
+  }
+};
+
 const findUser = async (userid, password) => {
   const response = await axios('https://react-http-258ae-default-rtdb.firebaseio.com/ridi.json');
   const responseData = await response.data;
 
   for (const key in responseData) {
-    if (responseData[key].userId === userid && responseData[key].password.toString() === password) {
+    if (responseData[key].userId === userid && responseData[key].password.toString() === password)
       return responseData[key];
-    }
   }
 };
 
 const createUser = async (userId, password, birth, email) => {
+  const idCheck = await userIdCheck(userId);
+  if (idCheck) return false;
+
   await axios({
     method: 'post',
     url: 'https://react-http-258ae-default-rtdb.firebaseio.com/ridi.json',
@@ -38,6 +49,8 @@ const createUser = async (userId, password, birth, email) => {
       email,
     },
   });
+
+  return true;
 };
 
 module.exports = { createUser, findUser };
