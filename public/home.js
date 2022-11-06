@@ -2235,7 +2235,8 @@ const BookInfo = selectedData => {
     views
   } = selectedData;
   const author = selectedData.author.split(',');
-  const starPercentage = selectedData.rating / 5 * 100;
+  const starRating = rating >= 5 ? 5 : rating.toFixed(1);
+  const starPercentage = starRating / 5 * 100;
   return `
   <article class="books__info">
   <div class="books__info__body">
@@ -2258,7 +2259,7 @@ const BookInfo = selectedData => {
         <span class="star-bg">
         <span class="star-bg__stars" style="width:${starPercentage}%"></span>
         </span>
-        <span class="books__info__body__details-wrap__star-rate-wrap__score">${rating}점</span>
+        <span class="books__info__body__details-wrap__star-rate-wrap__score">${starRating}점</span>
         <span class="books__info__body__details-wrap__star-rate-wrap__people">(${views}명)</span>
       </div>
 
@@ -2491,7 +2492,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BookReviewItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BookReviewItem.js */ "./src/js/components/webtoonpage/BookReviewItem.js");
 
 const BookReview = (selectedData, reviewList) => {
-  const starPercentage = selectedData.rating / 5 * 100;
+  const starRating = selectedData.rating >= 5 ? 5 : selectedData.rating.toFixed(1);
+  const starPercentage = starRating / 5 * 100;
 
   // prettier-ignore
   return `
@@ -2501,7 +2503,7 @@ const BookReview = (selectedData, reviewList) => {
       <div class="books__review__review-wrap__score-wrap">
 
         <div class="books__review__review-wrap__score-wrap__left">
-          <span class="books__review__review-wrap__score-wrap__left__score">${selectedData.rating}</span>
+          <span class="books__review__review-wrap__score-wrap__left__score">${starRating}</span>
           <span class="star-bg">
             <span class="star-bg__stars" style="width:${starPercentage}%"></span>
           </span>

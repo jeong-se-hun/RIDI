@@ -4512,7 +4512,8 @@ const BookInfo = selectedData => {
     views
   } = selectedData;
   const author = selectedData.author.split(',');
-  const starPercentage = selectedData.rating / 5 * 100;
+  const starRating = rating >= 5 ? 5 : rating.toFixed(1);
+  const starPercentage = starRating / 5 * 100;
   return `
   <article class="books__info">
   <div class="books__info__body">
@@ -4535,7 +4536,7 @@ const BookInfo = selectedData => {
         <span class="star-bg">
         <span class="star-bg__stars" style="width:${starPercentage}%"></span>
         </span>
-        <span class="books__info__body__details-wrap__star-rate-wrap__score">${rating}점</span>
+        <span class="books__info__body__details-wrap__star-rate-wrap__score">${starRating}점</span>
         <span class="books__info__body__details-wrap__star-rate-wrap__people">(${views}명)</span>
       </div>
 
@@ -4772,7 +4773,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BookReviewItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BookReviewItem.js */ "./src/js/components/webtoonpage/BookReviewItem.js");
 
 const BookReview = (selectedData, reviewList) => {
-  const starPercentage = selectedData.rating / 5 * 100;
+  const starRating = selectedData.rating >= 5 ? 5 : selectedData.rating.toFixed(1);
+  const starPercentage = starRating / 5 * 100;
 
   // prettier-ignore
   return `
@@ -4782,7 +4784,7 @@ const BookReview = (selectedData, reviewList) => {
       <div class="books__review__review-wrap__score-wrap">
 
         <div class="books__review__review-wrap__score-wrap__left">
-          <span class="books__review__review-wrap__score-wrap__left__score">${selectedData.rating}</span>
+          <span class="books__review__review-wrap__score-wrap__left__score">${starRating}</span>
           <span class="star-bg">
             <span class="star-bg__stars" style="width:${starPercentage}%"></span>
           </span>
@@ -6494,31 +6496,7 @@ __webpack_require__.r(__webpack_exports__);
 const $root = document.getElementById('root');
 let webtoon = null;
 let selectedData = null;
-let reviewList = [{
-  idx: 4,
-  userId: 'Sasuke',
-  date: '2022.08.29',
-  comment: '생각보다 내용 전개가 흥미롭네요 ~ 지루함없이 달리고 있어요 !',
-  starRating: 4
-}, {
-  idx: 3,
-  userId: 'Naruto',
-  date: '2022.08.29',
-  comment: '재미있게 잘 보고 있습니다',
-  starRating: 5
-}, {
-  idx: 2,
-  userId: 'Hogwarts',
-  date: '2022.08.28',
-  comment: '딱 포인트 받을만큼만 보려고 했는데... 미친듯 결제하고 있는 내 손가락! 재밌다.',
-  starRating: 4
-}, {
-  idx: 1,
-  userId: 'zerobase',
-  date: '2022.08.28',
-  comment: '작화가 예쁘고 읽기 편해 좋네요 재밌게 읽고 있어요',
-  starRating: 4
-}];
+let reviewList = [];
 const initReviewList = () => {
   reviewList = [{
     idx: 4,
@@ -6660,7 +6638,7 @@ const addReview = e => {
   selectedData = {
     ...selectedData,
     views: (views + 1).toLocaleString(),
-    rating: Math.round(newRating * 10) / 10
+    rating: newRating
   };
   (0,_app_js__WEBPACK_IMPORTED_MODULE_0__.compareDom)($root, webtoonReRender());
 };
