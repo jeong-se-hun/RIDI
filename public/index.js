@@ -5284,7 +5284,6 @@ const checkAdult = e => {
     const {
       isAdult
     } = (0,_app_js__WEBPACK_IMPORTED_MODULE_1__.getPayload)();
-    console.log(isAdult);
     if (!isAdult && ((_e$target$closest = e.target.closest('li')) === null || _e$target$closest === void 0 ? void 0 : _e$target$closest.dataset.adult) === 'true') {
       alert('성인이 아닙니다.');
       return;
@@ -6035,8 +6034,7 @@ const joinMembership = async e => {
     return obj[key] = value, obj;
   }, {});
   try {
-    const response = await axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signup', payload);
-    console.log(response);
+    await axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signup', payload);
     window.history.pushState({}, null, '/');
     (0,_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])('/');
   } catch (e) {

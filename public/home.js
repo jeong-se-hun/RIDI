@@ -2877,7 +2877,6 @@ const checkAdult = e => {
     const {
       isAdult
     } = (0,_app_js__WEBPACK_IMPORTED_MODULE_1__.getPayload)();
-    console.log(isAdult);
     if (!isAdult && ((_e$target$closest = e.target.closest('li')) === null || _e$target$closest === void 0 ? void 0 : _e$target$closest.dataset.adult) === 'true') {
       alert('성인이 아닙니다.');
       return;

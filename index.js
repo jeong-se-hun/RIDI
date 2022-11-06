@@ -5,7 +5,7 @@ const path = require('path');
 
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-const users = require('./fake-data/users');
+const users = require('./usersData/users');
 
 require('dotenv').config();
 
