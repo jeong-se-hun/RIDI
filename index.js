@@ -5,7 +5,25 @@ const path = require('path');
 
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-const users = require('./fake-data/users');
+// const users = require('./fake-data/users');
+
+let users = [
+  { userId: 'kids', password: '123456', birth: '2010', email: 'kids@test.com' },
+  { userId: 'adult', password: '123456', birth: '1999', email: 'adult@test.com' },
+];
+
+// const findUserByUserid = userid => users.find(user => user.userId === userid);
+
+const findUser = (userid, password) => users.find(user => user.userId === userid && user.password === password);
+
+const createUser = (userId, password, birth, email) => {
+  users = [...users, { userId, password, birth, email }];
+  console.log(users, '여긴 유저데이터!');
+};
+
+const getUsers = () => users;
+
+//
 
 require('dotenv').config();
 
@@ -45,7 +63,7 @@ app.post('/login', (req, res) => {
   if (!userid || !password)
     return res.status(401).send({ error: '사용자 아이디 또는 패스워드가 전달되지 않았습니다.' });
 
-  const user = users.findUser(userid, password);
+  const user = findUser(userid, password);
   console.log('test', user);
 
   // 401 Unauthorized
@@ -72,8 +90,8 @@ app.post('/login', (req, res) => {
 app.post('/signup', (req, res) => {
   console.log(req.body);
   const { userId, password, birth, userEmail } = req.body;
-  users.createUser(userId, password, birth, userEmail);
-  const userData = users.getUsers();
+  createUser(userId, password, birth, userEmail);
+  const userData = getUsers();
   res.send(userData);
 });
 
