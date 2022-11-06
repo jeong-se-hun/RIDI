@@ -39,6 +39,7 @@ app.get('/mypage', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
+  console.log(req.body);
   const { userid, password } = req.body;
 
   if (!userid || !password)
@@ -69,6 +70,7 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
+  console.log(req.body);
   const { userId, password, birth, userEmail } = req.body;
   users.createUser(userId, password, birth, userEmail);
   console.log(users.getUsers());
