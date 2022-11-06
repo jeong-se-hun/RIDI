@@ -5219,6 +5219,8 @@ $root.addEventListener('click', async e => {
   render(path);
 });
 window.addEventListener('popstate', async () => {
+  // eslint-disable-next-line no-debugger
+  debugger;
   const {
     data: auth
   } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auth');

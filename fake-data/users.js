@@ -8,6 +8,7 @@ const findUserByUserid = userid => users.find(user => user.userId === userid);
 const findUser = (userid, password) => users.find(user => user.userId === userid && user.password === password);
 
 const createUser = (userId, password, birth, email) => {
+  console.log(userId, password, birth, email);
   users = [...users, { userId, password, birth, email }];
   console.log(users);
 };

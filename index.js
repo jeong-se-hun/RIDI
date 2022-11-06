@@ -48,12 +48,12 @@ app.post('/login', (req, res) => {
   const user = users.findUser(userid, password);
   console.log('test', user);
 
+  // 401 Unauthorized
+  if (!user) return res.status(401).send({ error: '등록되지 않은 사용자입니다.' });
+
   const { userId, birth, email } = user;
 
   console.log('사용자 정보:', user);
-
-  // 401 Unauthorized
-  if (!user) return res.status(401).send({ error: '등록되지 않은 사용자입니다.' });
 
   // 토큰 생성
   const accessToken = jwt.sign({ userId, birth, email }, process.env.JWT_SECRET_KEY, {
