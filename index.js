@@ -75,7 +75,7 @@ app.post('/signup', (req, res) => {
   users.createUser(userId, password, birth, userEmail);
   const date = users.getUsers();
   console.log(date);
-  res.send(date);
+  res.send({ date });
 });
 
 app.get('*', (req, res) => {
