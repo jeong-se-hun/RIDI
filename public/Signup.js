@@ -5573,6 +5573,7 @@ const request = async e => {
     const token = await user.accessToken.split('.')[1];
     localStorage.setItem('token', token);
     console.log('😀 LOGIN SUCCESS!');
+    console.log(user);
     // if (user) history.back();
 
     window.history.pushState({}, null, '/');

@@ -12,10 +12,17 @@ let users = [
   { userId: 'adult', password: '123456', birth: '1999', email: 'adult@test.com' },
 ];
 
-const findUser = (userid, password) => users.find(user => user.userId === userid && user.password === password);
+const findUser = (userid, password) =>
+  users.find(user => {
+    console.log('findUser', user, userid, password);
+    return user.userId === userid && user.password === password;
+  });
 
 const createUser = (userId, password, birth, email) => {
   users = [...users, { userId, password, birth, email }];
+  console.log(users, '여긴 유저데이터!');
+  console.log(users, '여긴 유저데이터!');
+  console.log(users, '여긴 유저데이터!');
   console.log(users, '여긴 유저데이터!');
 };
 
