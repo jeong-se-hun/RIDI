@@ -1,38 +1,12 @@
 const express = require('express');
-const axios = require('axios');
 
 const app = express();
 const path = require('path');
 
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-// const users = require('./fake-data/users');
+const users = require('./fake-data/users');
 
-const findUser = async (userid, password) => {
-  const response = await axios('https://react-http-258ae-default-rtdb.firebaseio.com/ridi.json');
-  const responseData = await response.data;
-
-  for (const key in responseData) {
-    if (responseData[key].userId === userid && responseData[key].password.toString() === password) {
-      return responseData[key];
-    }
-  }
-};
-
-const createUser = async (userId, password, birth, email) => {
-  await axios({
-    method: 'post',
-    url: 'https://react-http-258ae-default-rtdb.firebaseio.com/ridi.json',
-    data: {
-      userId,
-      password,
-      birth,
-      email,
-    },
-  });
-};
-
-//
 require('dotenv').config();
 
 const { PORT } = process.env;
@@ -71,7 +45,7 @@ app.post('/login', async (req, res) => {
   if (!userid || !password)
     return res.status(401).send({ error: '사용자 아이디 또는 패스워드가 전달되지 않았습니다.' });
 
-  const user = await findUser(userid, password);
+  const user = await users.findUser(userid, password);
   console.log('test', user);
 
   // 401 Unauthorized
@@ -98,7 +72,7 @@ app.post('/login', async (req, res) => {
 app.post('/signup', async (req, res) => {
   console.log(req.body);
   const { userId, password, birth, userEmail } = req.body;
-  await createUser(userId, password, birth, userEmail);
+  await users.createUser(userId, password, birth, userEmail);
   res.end();
 });
 
