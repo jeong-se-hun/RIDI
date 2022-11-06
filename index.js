@@ -45,6 +45,8 @@ app.post('/login', (req, res) => {
     return res.status(401).send({ error: '사용자 아이디 또는 패스워드가 전달되지 않았습니다.' });
 
   const user = users.findUser(userid, password);
+  console.log('test', user);
+
   const { userId, birth, email } = user;
 
   console.log('사용자 정보:', user);
@@ -69,6 +71,7 @@ app.post('/login', (req, res) => {
 app.post('/signup', (req, res) => {
   const { userId, password, birth, userEmail } = req.body;
   users.createUser(userId, password, birth, userEmail);
+  console.log(users.getUsers());
   res.end();
 });
 
