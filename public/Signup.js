@@ -6035,8 +6035,6 @@ const joinMembership = async e => {
   }, {});
   try {
     const response = await axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signup', payload);
-    const data = await response.json();
-    console.log(data);
     console.log(response);
     window.history.pushState({}, null, '/');
     (0,_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])('/');
