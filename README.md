@@ -1,5 +1,9 @@
 # 기존 팀 프로젝트에 아쉬웠던 부분을 추가한 버전입니다.
 
+## 배포 주소
+
+https://cotakutoon.vercel.app/
+
 ### 기존 팀 프로젝트 주소
 
 https://github.com/jeong-se-hun/RIDIProject
