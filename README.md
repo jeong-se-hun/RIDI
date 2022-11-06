@@ -8,11 +8,6 @@ https://cotakutoon.vercel.app/
 
 https://github.com/jeong-se-hun/RIDIProject
 
-### 수정 버전 실행 방법
-
-1. npm i
-2. npm start
-
 ### 프로젝트 설명
 
 팀 프로젝트로 만든 COTAKU TOON 프로젝트에 라우터로 화면전환 시 변경 부분이 아닌 전체가 새로 렌더 되는 부분이 아쉬워서 화면전환 시 diff를 통해 변경된 부분만 랜더 될 수 있도록 변경했으며 오류 수정 및 웹 팩으로 최적화를 적용한 버전입니다.
