@@ -12,8 +12,6 @@ let users = [
   { userId: 'adult', password: '123456', birth: '1999', email: 'adult@test.com' },
 ];
 
-// const findUserByUserid = userid => users.find(user => user.userId === userid);
-
 const findUser = (userid, password) => users.find(user => user.userId === userid && user.password === password);
 
 const createUser = (userId, password, birth, email) => {

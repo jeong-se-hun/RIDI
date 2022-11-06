@@ -5209,8 +5209,7 @@ $root.addEventListener('click', async e => {
   const {
     data: auth
   } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auth');
-  // if (!auth) localStorage.removeItem('token');
-
+  if (!auth) localStorage.removeItem('token');
   const path = e.target.closest('a').getAttribute('href');
   if (!((_getPayload = (0,_app_js__WEBPACK_IMPORTED_MODULE_1__.getPayload)()) !== null && _getPayload !== void 0 && _getPayload.isAdult) && ((_e$target$closest = e.target.closest('li')) === null || _e$target$closest === void 0 ? void 0 : _e$target$closest.dataset.adult) === 'true') return;
   if (e.target.closest('#nav-settings')) return;
@@ -5223,8 +5222,7 @@ window.addEventListener('popstate', async () => {
   const {
     data: auth
   } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auth');
-  // if (!auth) localStorage.removeItem('token');
-
+  if (!auth) localStorage.removeItem('token');
   render(window.location.pathname);
 });
 window.addEventListener('DOMContentLoaded', async () => {
@@ -5234,9 +5232,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (!auth) localStorage.removeItem('token');
   render(window.location.pathname);
 });
-
-// 토큰만료시(어떻게아냐) 로컬스토리지 삭제
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (render);
 
 /***/ }),
@@ -5540,6 +5535,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app.js */ "./src/js/app.js");
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../index.js */ "./src/js/index.js");
+
 
 
 const returnSpace = e => {
@@ -5576,7 +5573,10 @@ const request = async e => {
     const token = await user.accessToken.split('.')[1];
     localStorage.setItem('token', token);
     console.log('😀 LOGIN SUCCESS!');
-    if (user) history.back();
+    // if (user) history.back();
+
+    window.history.pushState({}, null, '/');
+    await (0,_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])('/');
   } catch (e) {
     console.log('😱 LOGIN FAILURE..');
     document.querySelector('.login__error-message').textContent = '! 아이디 또는 비밀번호를 확인해주세요.';
@@ -6041,8 +6041,8 @@ const joinMembership = async e => {
   try {
     const response = await axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signup', payload);
     console.log(response);
-    // window.history.pushState({}, null, '/');
-    (0,_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])('/');
+    window.history.pushState({}, null, '/');
+    await (0,_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])('/');
   } catch (e) {
     console.log('😰 오류!! 회원가입에 실패했습니다.');
   }
