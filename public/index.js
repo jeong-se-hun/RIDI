@@ -6039,8 +6039,9 @@ const joinMembership = async e => {
     return obj[key] = value, obj;
   }, {});
   try {
-    await axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signup', payload);
-    window.history.pushState({}, null, '/');
+    const response = await axios__WEBPACK_IMPORTED_MODULE_0___default().post('/signup', payload);
+    console.log(response);
+    // window.history.pushState({}, null, '/');
     (0,_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])('/');
   } catch (e) {
     console.log('😰 오류!! 회원가입에 실패했습니다.');

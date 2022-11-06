@@ -9,7 +9,7 @@ const findUser = (userid, password) => users.find(user => user.userId === userid
 
 const createUser = (userId, password, birth, email) => {
   users = [...users, { userId, password, birth, email }];
-  console.log(users, '여긴 유저데이터');
+  console.log(users, '여긴 유저데이터!');
 };
 
 const getUsers = () => users;
