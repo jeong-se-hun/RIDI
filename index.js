@@ -55,11 +55,11 @@ app.post('/login', async (req, res) => {
 
   // 토큰 생성
   const accessToken = jwt.sign({ userId, birth, email }, process.env.JWT_SECRET_KEY, {
-    expiresIn: '1d',
+    expiresIn: '1h',
   });
 
   res.cookie('accessToken', accessToken, {
-    maxAge: 1000 * 60 * 60 * 24 * 1, // 1d
+    maxAge: 1000 * 60 * 60 * 1 * 1, //
     httpOnly: true,
   });
 
