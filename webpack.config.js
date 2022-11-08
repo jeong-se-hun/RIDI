@@ -3,9 +3,9 @@ const HtmlPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
 
-  devtool: 'source-map',
+  // devtool: 'source-map',
 
   entry: {
     index: { import: './src/js/index.js', dependOn: 'shared' },
