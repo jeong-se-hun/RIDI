@@ -4,6 +4,11 @@
 
 https://cotakutoon.vercel.app/
 
+|         | 미성년자 |  성인  |
+| :-----: | :------: | :----: |
+| Test ID |   kids   | adult  |
+| Test PW |  123456  | 123456 |
+
 ### 기존 팀 프로젝트 주소
 
 https://github.com/jeong-se-hun/RIDIProject
