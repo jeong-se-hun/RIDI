@@ -10,8 +10,8 @@ const Footer = () => {
   const etcList = ['콘텐츠 제공 문의', '사업 제휴 문의'];
   // prettier-ignore
   const introduceList = [
-    { title: '회사 소개', newInfo: false },
-    { title: '인재채용', newInfo: true }
+    { title: '회사 소개'},
+    { title: '인재채용' }
   ];
   // prettier-ignore
   const contentList = [
@@ -24,6 +24,7 @@ const Footer = () => {
   ];
   const linkList = ['이용약관', '개인정보 처리방침', '청소년보호정책', '사업자정보확인'];
   const icons = ['bx bxl-facebook', 'bx bxl-instagram', 'bx bxl-youtube'];
+  const iconTitles = ['페이스북', '인스타그램', '유튜브'];
 
   // prettier-ignore
   return `
@@ -57,7 +58,7 @@ const Footer = () => {
             <!--  -->
             <div class="footer__wrap__customer-guide__info">
               <div class="footer__wrap__customer-guide__info__service">
-                <h4 class="footer__wrap__customer-guide__info__service__title">서비스</h4>
+                <h3 class="footer__wrap__customer-guide__info__service__title">서비스</h3>
                 <ul class="footer__wrap__customer-guide__info__service__list">
                   ${serviceList.map(str => `
                     ${FooterServiceItem(str)}
@@ -67,7 +68,7 @@ const Footer = () => {
               <div class="footer__wrap__customer-guide__info__etcAndIntroduce">
                 <!-- etc -->
                 <div class="footer__wrap__customer-guide__info__etcAndIntroduce__etc">
-                  <h4 class="footer__wrap__customer-guide__info__etcAndIntroduce__etc__title">기타 문의</h4>
+                  <h3 class="footer__wrap__customer-guide__info__etcAndIntroduce__etc__title">기타 문의</h3>
                   <ul class="footer__wrap__customer-guide__info__etcAndIntroduce__etc__list">
                     ${etcList.map(str => `
                       ${FooterEtcItem(str)}
@@ -75,7 +76,7 @@ const Footer = () => {
                   </ul>
                 </div>
                 <div class="footer__wrap__customer-guide__info__etcAndIntroduce__introduce">
-                  <h4 class="footer__wrap__customer-guide__info__etcAndIntroduce__introduce__title">회사</h4>
+                  <h3 class="footer__wrap__customer-guide__info__etcAndIntroduce__introduce__title">회사</h3>
                   <ul class="footer__wrap__customer-guide__info__etcAndIntroduce__introduce__list">
                     ${introduceList.map(str => `
                       ${FooterIntroduceItem(str)}
@@ -122,8 +123,8 @@ const Footer = () => {
           </div>
         </div>
         <ul class="footer__icon-list">
-          ${icons.map(icon => `
-            ${FooterIconsItem(icon)}
+          ${icons.map((icon, i) => `
+            ${FooterIconsItem(icon,iconTitles[i])}
           `).join('')}
         </ul>
       </div>

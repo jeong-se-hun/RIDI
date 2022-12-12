@@ -48,7 +48,7 @@ const Header = () => {
         </h1>
         <form action="" class="header-down__form" role="search">
           <div class="header-down__form__container">
-            <label class="header-down__form__label">
+            <label class="header-down__form__label" aria-label="검색창">
               <i class="bx bx-search header-down__form__icon"></i>
               <input type="text" class="header-down__form__input" />
             </label>

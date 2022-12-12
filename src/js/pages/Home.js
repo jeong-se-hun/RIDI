@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import _ from 'lodash';
+import throttle from 'lodash-es/throttle';
 import { createElement, fetchData, getPayload } from '../app.js';
 import HeaderSearchItem from '../components/common/HeaderSearchItem.js';
 import HeaderSearchList from '../components/common/HeaderSearchList.js';
@@ -272,7 +272,7 @@ const matchMediaMiniBannerMobile = window.matchMedia(`(max-width: 767px)`);
 const mainPageEventBinding = () => {
   $root.addEventListener('click', checkAdult);
   $root.addEventListener('click', toggleSearchDiv);
-  $root.addEventListener('keyup', _.throttle(isEmptyValue, 500));
+  $root.addEventListener('keyup', throttle(isEmptyValue, 500));
   $root.addEventListener('click', saveVisitedBooks);
   $root.addEventListener('click', setDirection);
   $root.addEventListener('transitionend', infiniteSlide);

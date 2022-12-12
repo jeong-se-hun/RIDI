@@ -2,7 +2,7 @@ import { isAdult } from '../../app.js';
 
 const RankingSectionItem = ({ title, cover, author, freeEpisode, rating, views, adult }, i) => `
   <li class="rank__carousel__item carouselItem" data-adult="${adult}">
-    <a href="/webtoon" class="rank__carousel__link" data-title="${title}">
+    <a href="/webtoon" class="rank__carousel__link" data-title="${title}" aria-label="${title} 디테일 페이지 이동 링크">
       <img src="${isAdult(cover, adult)}" alt="" class="rank__carousel__img" />
     </a>
     <span class="rank__carousel__num">${i + 1}</span>

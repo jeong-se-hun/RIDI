@@ -9,10 +9,8 @@ module.exports = {
 
   entry: {
     index: { import: './src/js/index.js', dependOn: 'shared' },
-    home: { import: './src/js/pages/Home.js', dependOn: 'shared' },
-    Signup: { import: './src/js/pages/Signup.js', dependOn: 'shared' },
-    Viewer: { import: './src/js/pages/Viewer.js', dependOn: 'shared' },
-    shared: ['./src/scss/style.scss', 'lodash'],
+    css: { import: './src/scss/style.scss' },
+    shared: ['./src/js/components', 'lodash-es', 'axios'],
   },
 
   module: {
@@ -59,5 +57,15 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'public'),
     clean: true,
+  },
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+
+  devServer: {
+    port: 8000,
   },
 };

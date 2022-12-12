@@ -8,10 +8,10 @@ const CarouselButton = (datasLength, type) => {
 
   return `
   <div class="carousel__button">
-    <button class="prev" style="display: ${leftButtonDisplay}">
+    <button aria-label="좌측 이동 버튼" class="prev" style="display: ${leftButtonDisplay}">
       <i class="bx bx-chevron-left"></i>
     </button>
-    <button class="next" style="display: ${rightButtonDisplay}">
+    <button aria-label="우측 이동 버튼" class="next" style="display: ${rightButtonDisplay}">
       <i class="bx bx-chevron-right"></i>
     </button>
   </div>  

@@ -26,10 +26,20 @@ https://github.com/jeong-se-hun/RIDIProject
 
 #### diff 적용 전후 비교
 
-|           diff 적용 전           |
-| :------------------------------: |
-| <img src="./diffImg/diff1.gif"/> |
+|          diff 적용 전           |
+| :-----------------------------: |
+| <img src="./assets/diff1.gif"/> |
 
-|           diff 적용 후           |
-| :------------------------------: |
-| <img src="./diffImg/diff2.gif"/> |
+|          diff 적용 후           |
+| :-----------------------------: |
+| <img src="./assets/diff2.gif"/> |
+
+### 최적화 전후 비교
+
+|         최적화 적용 전          |
+| :-----------------------------: |
+| <img src="./assets/ridi1.png"/> |
+
+|         최적화 적용 후          |
+| :-----------------------------: |
+| <img src="./assets/ridi2.png"/> |
