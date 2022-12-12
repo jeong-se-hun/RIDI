@@ -28,6 +28,7 @@ https://github.com/jeong-se-hun/RIDIProject
 
 #### diff 적용 전후 비교
 
+
 |          diff 적용 전           |
 | :-----------------------------: |
 | <img src="./assets/diff1.gif"/> |
