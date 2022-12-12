@@ -24,6 +24,8 @@ https://github.com/jeong-se-hun/RIDIProject
 3. 웹팩 으로 빌드 및 이미지 리사이징으로 최적화
 4. 오류 수정
 
+<br/>
+
 #### diff 적용 전후 비교
 
 |          diff 적용 전           |
@@ -33,6 +35,8 @@ https://github.com/jeong-se-hun/RIDIProject
 |          diff 적용 후           |
 | :-----------------------------: |
 | <img src="./assets/diff2.gif"/> |
+
+<br/>
 
 ### 최적화 전후 비교
 
