@@ -32,7 +32,7 @@ app.get('/auth', auth);
 app.get('/mypage', (req, res) => {
   try {
     jwt.verify(req.cookies.accessToken, process.env.JWT_SECRET_KEY);
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+    res.sendFile(path.join(__dirname, 'public/index.html'));
   } catch (e) {
     res.redirect('/');
   }
